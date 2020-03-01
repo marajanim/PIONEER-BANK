@@ -27,7 +27,7 @@ h2{
 
 #transactionArea{
     
-    /* display: none; */
+    display: none;
 }
 .diposit{
     background-color: white;
@@ -73,7 +73,4 @@ h2{
     left: calc(100% - 70px);
     opacity: 0.102;
     box-sizing: border-box !important;
-}
-#login-area{
-    display: none;
 }

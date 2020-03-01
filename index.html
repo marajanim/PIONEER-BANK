@@ -44,7 +44,7 @@
                 <div class="col-lg-4 col-md-6  col-sm-12">
                     <div class="withdraw box-item">
                         <h5>Withdraw</h5>
-                        <h2>$ <span id="currentWithdraw">00</span></h2>
+                        <h2>$ <span id="BankWithdraw">00</span></h2>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6  col-sm-12">
@@ -71,7 +71,7 @@
                 <div class="amount-box">
                     <h4>Withdraw</h4>
                     <div class="form-group">
-                    <input id="addWithdraw" class="form-control" type="text" placeholder="Enter Amount">
+                    <input id="withdrawAmount" class="form-control" type="text" placeholder="Enter Amount">
                 </div>
                     <button id="withdrawBtn" class="btn btn-raised btn-success">Submit</button>
                 </div>
@@ -121,43 +121,32 @@
     const DepoBtn = document.getElementById("depositBtn");
     DepoBtn.addEventListener("click", function(){
 
-            // get the value of depositAmount id
-        const DepoAmount = document.getElementById("depositAmount").value;
-        // float the value of depositAmount id
-        const DepoAmountNumber = parseFloat(DepoAmount)
-        // get the value of BankDeposit id
-        // const BankDeposit = document.getElementById("BankDeposit").innerText;
-        // // float the value of BankDeposit id
-        // const BankDepositNumber = parseFloat(BankDeposit);
-        // // total deposit amount
-        // const totalDeposit = DepoAmountNumber+ BankDepositNumber;
-        // document.getElementById("BankDeposit").innerText = totalDeposit;
-        
 
-        // const BankBalance = document.getElementById("BankBalance").innerText;
-        // const FloatBankBalance = parseFloat(BankBalance);
-        // const TotalbankBalance = DepoAmountNumber + FloatBankBalance;
-        // document.getElementById("BankBalance").innerText = TotalbankBalance;
+        const DepoAmountNumber = getInputNumber("depositAmount")
         
         CurrentBalance("BankDeposit",DepoAmountNumber)
         CurrentBalance("BankBalance",DepoAmountNumber);
         document.getElementById("depositAmount").value = "";
     })
 
+    
     // withdraw button event handeler
     const withdrawBtn = document.getElementById("withdrawBtn");
     withdrawBtn.addEventListener("click", function(){
-        const addWithdraw = document.getElementById("addWithdraw").value;
-        const FloatAddWithdraw = parseFloat(addWithdraw);
-
-        const currentWithdraw = document.getElementById("currentWithdraw").innerText;
-        const FloatCurrrentWithdraw = parseFloat(currentWithdraw);
-        const totalWithdraw = FloatCurrrentWithdraw + FloatAddWithdraw;
-        
-        document.getElementById("currentWithdraw").innerText = totalWithdraw;
-
+ 
+        const FloatNumber = getInputNumber("withdrawAmount");
+        CurrentBalance("BankWithdraw",FloatNumber);
+        CurrentBalance("BankBalance", -1 * FloatNumber);
+        document.getElementById("withdrawAmount").value = "";
 
     })
+
+    function getInputNumber(id){
+        const withdrawAmount = document.getElementById(id).value;
+        const FloatNumber = parseFloat(withdrawAmount);
+        return FloatNumber;
+
+    }
 
     function CurrentBalance(id,DepoAmountNumber){
         const Balance = document.getElementById(id).innerText;

@@ -1,0 +1,79 @@
+body{
+    font-family: 'Poppins', 'sans-serif';
+    font-weight: 500;
+    padding: 200px;
+}
+
+h2{
+    font-weight: 700 !important;
+    padding: 20px 0px !important;
+}
+.loginDiv{
+    background-color: white;
+    border-radius: 10px;
+    margin-left: 295px;
+    padding: 30px;
+    box-shadow: 0px 0px 21px 9px rgba(47, 25, 204, 0.05);
+}
+
+.amount-box{
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 100px;
+
+    padding: 30px;
+    box-shadow: 0px 0px 21px 9px rgba(47, 25, 204, 0.05);
+}
+
+#transactionArea{
+    
+    /* display: none; */
+}
+.diposit{
+    background-color: white;
+}
+
+.withdraw{
+    background-color: rgb(255, 255, 255);
+}
+
+.total{
+    background-color: white;
+}
+
+.box-item{
+    border-radius: 20px;
+    padding: 20px 40px;
+    color: black;
+    box-shadow: 0px 0px 21px 9px rgba(47, 25, 204, 0.05);
+    overflow: hidden;
+    position: relative;
+}
+.box-item::before{
+    content: "" !important;
+    background-color: chartreuse;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    border-radius: 50%;
+    bottom: calc(100% - 70px);
+    right: calc(100% - 70px);
+    opacity: 0.102;
+    box-sizing: border-box !important;
+}
+
+.box-item::after{
+    content: "" !important;
+    background-color: chartreuse;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    border-radius: 50%;
+    top: calc(100% - 70px);
+    left: calc(100% - 70px);
+    opacity: 0.102;
+    box-sizing: border-box !important;
+}
+#login-area{
+    display: none;
+}
